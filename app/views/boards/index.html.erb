@@ -1,2 +1,27 @@
-<h1>Boards#index</h1>
-<p>Find me in app/views/boards/index.html.erb</p>
+<%= render partial: "navbar" %>
+<div class="ui grid">
+
+<% @boards.each do |board| %>
+  <div class="four wide column">
+  <div class="ui card">
+  <div class="image">
+    <img src="https://robohash.org/dasdfd">
+  </div>
+  <div class="content">
+    <a class="header"><%= board.name %></a>
+    <div class="meta">
+      <span class="">PLACEHOLDER TEXT</span>
+    </div>
+    <div class="description">
+      LISTS GO HERE
+    </div>
+  </div>
+  <div class="extra content">
+  <%= link_to "Edit", edit_board_path(board), class:"ui mini blue button"%>
+  <%= link_to "Delete", board, method: :delete, class:"ui mini red button"%>
+  </div>
+</div>
+</div>
+  <% end %>
+
+  </div>
