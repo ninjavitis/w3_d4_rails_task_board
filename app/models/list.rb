@@ -1,4 +1,4 @@
 class List < ApplicationRecord
-  belongs_to :board
+  belongs_to :board, dependent: :destroy
   has_many :tasks
 end
