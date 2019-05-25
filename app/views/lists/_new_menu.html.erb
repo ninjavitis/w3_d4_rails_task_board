@@ -1,0 +1,5 @@
+<nav class="ui menu">
+  <div class="header item"> <%= @list.name %> </div>
+  <div class="item"> New Task </div>
+  <%= link_to "Delete List", board_list_path(@board, @list), method: :delete, class:"right menu item" %>
+</nav>

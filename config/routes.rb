@@ -7,7 +7,9 @@ resources :boards do
 end
 
 resources :lists do
-  resources :tasks, shallow: true
+  resources :tasks
 end
+
+
 
 end

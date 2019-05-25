@@ -1,0 +1,32 @@
+<%= form_with(model:@list, local:true, class:"ui form") do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus:true, required:true, placeholder:"Gather Resources..."%>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder:"Harvest Vespene Gas."%>
+  </div>
+  <div class="field">
+    <%= f.label :due %>
+    <%= f.date_field :due %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %>
+    <%= f.text_field :tags %>
+  </div>
+  
+  
+
+  <%= f.submit "Save" %>
+<% end %>
+
+
+# t.string "name"
+# t.string "description"
+# t.date "due"
+# t.string "tags"
+# t.bigint "list_id"
+# t.datetime "created_at", null: false
+# t.datetime "updated_at", null: false
+# t.index ["list_id"], name: "index_tasks_on_list_id"

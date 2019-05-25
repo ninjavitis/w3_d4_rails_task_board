@@ -1,27 +1,29 @@
 <%= render partial: "navbar" %>
 <div class="ui grid">
-
-<% @boards.each do |board| %>
-  <div class="four wide column">
-  <div class="ui card">
-  <div class="image">
-    <img src="https://robohash.org/dasdfd">
-  </div>
-  <div class="content">
-    <a class="header"><%= board.name %></a>
-    <div class="meta">
-      <span class="">PLACEHOLDER TEXT</span>
+  <% @boards.each do |board| %>
+    <div class="four wide column">
+      <div class="ui card">
+      <div class="image">
+        <img src="https://robohash.org/dasdfd">
+      </div>
+      <div class="content">
+        <a class="header"><%= board.name %></a>
+        <div class="meta">
+          <span class="">PLACEHOLDER TEXT</span>
+        </div>
+        <div class="description">
+          <% board.lists.each do |list| %>
+            <%= link_to list.name, board_list_path(board, list) %>
+            <br />
+            <% end %>
+          </div>
+        </div>
+      <div class="extra content">
+        <%= link_to "+", new_board_list_path(board), class:"ui mini green button"%>
+        <%= link_to "Edit Board", edit_board_path(board), class:"ui mini blue button"%>
+        <%= link_to "Delete", board, method: :delete, class:"ui mini red button"%>
+      </div>
     </div>
-    <div class="description">
-      LISTS GO HERE
-    </div>
   </div>
-  <div class="extra content">
-  <%= link_to "Edit", edit_board_path(board), class:"ui mini blue button"%>
-  <%= link_to "Delete", board, method: :delete, class:"ui mini red button"%>
-  </div>
-</div>
-</div>
   <% end %>
-
-  </div>
+</div>
