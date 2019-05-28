@@ -1,16 +1,26 @@
 <%= render partial: "show_menu" %>
 
-  <div class="ui relaxed divided list">
-    <%= @list.tasks.each do |task| %>
-      <div class="item">
-      <i class="large hand point right middle aligned icon"></i>
-      <div class="content">
-        <%= link_to task.name, list_task_path(@list, task), class:"header" %>
-        <div class="description"><%= task.description %></div>
-      </div>
-    </div>
-    <%= link_to "Edit Task", edit_list_task_path(@list, task), class:"ui mini blue button"%>
-    <%= link_to "Delete", list_task_path(@list,task), method: :delete, class:"ui mini red button"%>
+<table class="ui celled padded table">
+  <thead>
+    <tr><th class="single line">Task</th>
+    <th>Status</th>
+    <th>Due</th>
+    <th>Description</th>
+    <th>Tags</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+    <% @list.tasks.each do |task| %>
+      <tr>
+      <td><%= link_to task.name, list_task_path(@list, task), class:"header" %></td>
+      <td><%= task.status %></td>
+      <td><%= task.due %></td>
+      <td class="description"><%= task.description %></td>
+      <td><%= task.tags %></td>
+      <td>
+        <%= link_to "Edit Task", edit_list_task_path(@list, task), class:"ui mini blue button"%>
+        <%= link_to "Delete", list_task_path(@list,task), method: :delete, class:"ui mini red button"%>
+      </td>
+      </tr>
     <% end %>
-  </div>
-
+  </tbody>

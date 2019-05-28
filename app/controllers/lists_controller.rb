@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   
   def index
     # @lists = @board.lists
-    @lists = List.all_lists
+    @lists = List.all_lists.sort(:due)
   end
 
   def show

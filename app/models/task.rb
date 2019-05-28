@@ -16,7 +16,8 @@ class Task < ApplicationRecord
     Task.find_by_sql([
       "SELECT *
       FROM tasks
-      WHERE list_id = :id;",
+      WHERE list_id = :id
+      ORDER BY due;",
       { 
         id: list_id
       }
